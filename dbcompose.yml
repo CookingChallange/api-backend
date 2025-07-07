@@ -1,0 +1,22 @@
+services:
+  postgres:
+    container_name: cooking
+    image: postgres:17-alpine
+    ports:
+      - "5432:5432"
+    networks:
+      - db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGDATA: /var/lib/postgresql/cooking
+    volumes:
+      - <path/to/postgres/data/on/host/machine>:/var/lib/postgresql
+    env_file: ".env"
+
+networks:
+  proxy:
+    driver: bridge
+  db:
+    driver: bridge

@@ -11,6 +11,23 @@
 $ npm i
 ```
 
+### Environment Variables
+
+All of the environment variables should be set on a `.env` file. You can use `.env.example` as the base to it.
+
+```bash
+$ cp .env.example .env
+```
+
+And now set the variables accordingly to your environment.
+
+
+### Database
+
+This project relies on a Postgres database and server you should set on `.env`file.
+You can setup that Postgres server by yourself, or you can use the `dbcompose.yml` to start a Postgres server using Docker Compose and the `.env` file.
+In the case you decide to use `dbcompose.yml`, don't forget to set in it where Postgres data will be saved on the host machine.
+
 ## Run tests
 
 ```bash
